@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider>Customization</ion-item-divider>
+      <ion-item>
+        <ion-icon color="primary" name="folder" item-start></ion-icon>
+        Categories
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="grid" item-start></ion-icon>
+        Tags
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="color-palette" item-start></ion-icon>
+        Theme
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider>Notifications</ion-item-divider>
+      <ion-item>
+        <ion-icon color="primary" name="alarm" item-start></ion-icon>
+        <ion-label>Timer</ion-label>
+        <ion-toggle color="secondary"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="beer" item-start></ion-icon>
+        <ion-label>Miscellaneous</ion-label>
+        <ion-toggle color="secondary"></ion-toggle>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider>Other</ion-item-divider>
+      <ion-item>
+        <ion-icon color="primary" name="paper" item-start></ion-icon>
+        Licensens
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="home" item-start></ion-icon>
+        About Us
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon color="primary" name="power" item-start color="danger"></ion-icon>
+        Sign Out
+      </ion-item>
+    </ion-item-group>
+
+  </ion-list>
+</ion-content>

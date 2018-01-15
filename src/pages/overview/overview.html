@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Overview</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- FAB that controls the timer -->
+  <ion-fab top right edge>
+    <button ion-fab color="secondary">
+      <ion-icon name="alarm"></ion-icon>
+    </button>
+    <ion-fab-list>
+      <button ion-fab>
+        <ion-icon name="play"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <!-- contain form with date, time, categories, tag, notes inputs -->
+  <ion-card padding>
+    <ion-card-header padding>
+      <h1>Welcome</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list padding>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime [(ngModel)]="newRecord.date" displayFormat="DD. MMM YYYY" pickerFormat="DD/MMMM/YYYY"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Time</ion-label>
+          <ion-datetime [(ngModel)]="newRecord.time" displayFormat="hh:mm" pickerFormat="hh:mm"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Categories</ion-label>
+          <ion-select [(ngModel)]="newRecord.category">
+            <ion-option *ngFor="let c of categories">{{c}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Tags</ion-label>
+          <ion-select [(ngModel)]="newRecord.tags" multiple="true">
+            <ion-option *ngFor="let t of tags">{{t}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Notes</ion-label>
+          <ion-input [(ngModel)]="newRecord.note" type="text" placeholer="Enter Note..."></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <div style="display:flex; flex-flow:row nowrap; justify-content:flex-end; align-items:center;" padding>
+        <button ion-button small icon-start color="danger" type="reset" (click)="resetTimeRecord()">
+          <ion-icon name="refresh"></ion-icon>
+          Refresh
+        </button>
+        <button ion-button small icon-start (click)="saveTimeRecord()">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          Save
+        </button>
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+</ion-content>

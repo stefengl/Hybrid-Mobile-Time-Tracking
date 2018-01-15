@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <header padding>
+    <h1>Welcome</h1>
+    <h3>Sign Up & Start Tracking</h3>
+  </header>
+
+  <form (submit)="registerNewUser()">
+    <ion-list padding>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail"></ion-icon>
+          Mail
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="newUser.email" name="sign-up-mail"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="unlock"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="newUser.password" name="sign-up-pw"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="key"></ion-icon>
+          Confirm Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="newUser.passwordConfirmation" name="sign-up-confirmed"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div style="display:flex; flex-flow:row nowrap; justify-content:flex-end; align-items: center">
+      <button ion-button clear large icon-only color="secondary" type="submit">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </button>
+    </div>
+  </form>
+
+
+</ion-content>

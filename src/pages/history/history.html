@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>History</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-item-group *ngFor="let dailyBundle of dailyRecordBundles">
+    <ion-item-divider color="light">{{dailyBundle.date | date}}</ion-item-divider>
+    <ion-item *ngFor="let record of dailyBundle.records">
+      <h2>{{record.category}}</h2>
+      <h3>{{record.time + ' h'}}</h3>
+      <p>{{record.tags}}</p>
+      <p>{{record.note}}</p>
+      <ion-icon name="trash" color="primary" item-end (click)="deleteRecord(record)"></ion-icon>
+    </ion-item>
+  </ion-item-group>
+
+
+</ion-content>
