@@ -21,8 +21,9 @@ export class SettingsPage {
   ionViewDidLoad() { }
 
   logout() {
-    this.navCtrl.push(this.loginpage)
-      .then(() => this.auth.logout())
+    this.auth.logout().then( () => {
+      this.navCtrl.popToRoot();
+    })
   }
 
 }

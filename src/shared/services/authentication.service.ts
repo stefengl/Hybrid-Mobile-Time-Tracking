@@ -7,10 +7,7 @@ export class AuthenticationService {
 
   user: any = null;
 
-  constructor(
-    private fireAuth: AngularFireAuth,
-    ) {
-
+  constructor(private fireAuth: AngularFireAuth) {
     this.handleAuthChange();
   }
 
@@ -35,5 +32,4 @@ export class AuthenticationService {
   public logout(): Promise<any> {
     return this.fireAuth.auth.signOut();
   }
-
 }

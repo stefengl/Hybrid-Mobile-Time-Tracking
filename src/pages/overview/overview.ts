@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TimeRecordModel } from '../../shared/models/time-record.model';
 import { DataService } from '../../shared/services/data.service';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
+import { Subscription } from 'rxjs/Subscription';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 
 
 @IonicPage()
@@ -13,6 +15,9 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 export class OverviewPage {
   tags: string[] = [];
   categories: any;
+
+  tagsSubscription: Subscription;
+  categoriesSubscription: Subscription;
 
   newRecord: TimeRecordModel = {
     category: null,
@@ -34,15 +39,26 @@ export class OverviewPage {
     this.handleSubscriptions();
   }
 
+  ionViewDidUnload() {
+    this.unsubscribe();
+  }
+
   getData() {
     this.data.getTags();
     this.data.getCategories();
   }
 
+  
   handleSubscriptions() {
-    this.data.tags.subscribe((tags) => this.tags = [...tags])
-    this.data.categories.subscribe((categories) => this.categories = [...categories])
+    this.tagsSubscription = this.data.tags.subscribe((tags) => this.tags = [...tags])
+    this.categoriesSubscription = this.data.categories.subscribe((categories) => this.categories = [...categories])
   }
+  
+  unsubscribe() {
+    this.tagsSubscription.unsubscribe();
+    this.categoriesSubscription.unsubscribe();
+  }
+
 
   resetTimeRecord() {
     this.newRecord.category = '';
@@ -81,5 +97,4 @@ export class OverviewPage {
 
     return isValid;
   }
-
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { RegistrationPage } from '../registration/registration';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { TabsPage } from '../tabs/tabs';
@@ -23,7 +23,6 @@ export class LoginPage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
     private auth: AuthenticationService) {
   }
 

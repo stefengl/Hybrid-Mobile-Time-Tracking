@@ -57,4 +57,8 @@ export class HistoryPage {
     console.warn('#TODO \t Remove ' + JSON.stringify(record));
   }
 
+  ionViewWillUnload(){
+    
+  }
+
 }
