@@ -30,7 +30,9 @@ const fireConfig: FirebaseAppConfig = {
   apiKey: 'AIzaSyAOFJrOoZGs6mtx1oQoKHET-zzb-PabLUw',
   authDomain: 'time-tracking-pwa.firebaseapp.com',
   databaseURL: 'https://time-tracking-pwa.firebaseio.com/',
-  projectId: 'time-tracking-pwa'
+  projectId: 'time-tracking-pwa',
+  storageBucket: "time-tracking-pwa.appspot.com",
+  messagingSenderId: "158405242512"
 }
 
 @NgModule({

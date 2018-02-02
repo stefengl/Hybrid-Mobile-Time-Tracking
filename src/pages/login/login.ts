@@ -4,6 +4,7 @@ import { RegistrationPage } from '../registration/registration';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { TabsPage } from '../tabs/tabs';
 import { LoginModel } from '../../shared/models/login.model';
+import { EnvConfig } from '../../environment';
 
 
 @IonicPage()
@@ -17,6 +18,8 @@ export class LoginPage {
     email: '',
     password: ''
   }
+
+  env: string = (EnvConfig.production) ? "Production" : "Development";
 
   constructor(
     public navCtrl: NavController,
